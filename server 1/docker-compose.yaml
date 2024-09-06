@@ -1,10 +1,18 @@
 version: '3'
 
 services:
-  front:
-    container_name: frontend
-    image: nginx:latest
+  web:
+    build: .
     ports:
-    - 8080:80
+      - "8080:8080"
     volumes:
-      - ./app:/usr/share/nginx/html:ro
+      - .:/app  # Mount the current directory (containing 'app', Dockerfile, etc.)
+# services:
+#   front:
+#     container_name: frontend
+#     image: nginx:latest
+#     ports:
+#     - 8080:80
+#     volumes:
+#       - ./app:/usr/share/nginx/html:ro
+
