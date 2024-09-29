@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evil Corp Server Statistics</title>
+    <title>Evil Corp Dashboard</title>
     <style>
         /* Estilos generales */
         body {
@@ -57,11 +57,13 @@
         .metric h3 {
             margin-top: 0;
         }
-        .options-bar{
+
+        .options-bar {
             text-align: right;
             padding-right: 1rem;
         }
-        .options-bar a{
+
+        .options-bar a {
             color: white;
         }
     </style>
@@ -83,13 +85,10 @@
     </div>
 
     <div id="content">
-        <div>
-            <h5>FLAG OBTAINED:  flag{pwnED_ch411eNG3}</h5>
-        </div>
         <h1>Evil Corp Dashboard</h1>
 
-        <div class="metric">
-            <h3>Usuarios Activos</h3>
+        <div class="metric" id="connected-users">
+            <h3>Connected Users</h3>
             <p>1,337</p>
         </div>
 
@@ -103,7 +102,8 @@
             <p>666 TB</p>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='scripts/stats.js')}}"></script>
 </body>
 
 </html>

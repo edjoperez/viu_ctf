@@ -4,7 +4,6 @@
 <head>
     <title>Evil Corp</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
 </head>
 
 <body>
@@ -48,7 +47,8 @@
             <p>&copy; 2023 Evil Corp. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
 </body>
 
 </html>

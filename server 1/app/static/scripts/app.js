@@ -20,6 +20,19 @@ function makeAjaxCall(method, url, data, successCallback, errorCallback) {
     xhr.send(JSON.stringify(data)); // Send data if provided
   }
 
+
+$(()=>{
+  // console.log('loaded file');
+  // $.ajax({
+  //   url: "/edit/2",
+  // }).done((content)=>{
+  //   console.log(content)
+  // });
+  $.get("/posts/get/1",{name: 'ed'}, (res)=>{
+    console.log(res);
+  });
+});
+
   //TODO: Not going to be implemented in v1.0
 
   //service: 

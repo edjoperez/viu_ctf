@@ -29,7 +29,7 @@ body {
   }
   
   .hero {
-    background-image: url("hero-image.jpg"); /* Replace with a suitable image */
+    background-image: url("background.png"); /* Replace with a suitable image */
     background-size: cover;
     background-position: center;
     text-align: center;
