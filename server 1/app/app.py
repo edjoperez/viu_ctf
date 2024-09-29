@@ -12,7 +12,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect('server 1/cms.db')
+        db = g._database = sqlite3.connect('cms.db')
         db.row_factory = sqlite3.Row
     return db
 
@@ -152,4 +152,4 @@ def dashboard_stats():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
