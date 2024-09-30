@@ -1,5 +1,6 @@
 {
     "connectedUsers": 1550,
     "newOrders": 42,
-    "totalTraffic": 666
+    "totalTraffic": 666,
+    "lastUpdate": "9999"
 }
