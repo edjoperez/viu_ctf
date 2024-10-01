@@ -5,7 +5,7 @@ FROM python:3.9-slim-buster
 RUN useradd -ms /bin/bash -d /home/flaffy flaffy 
 
 # Install necessary packages including cron and supervisord
-RUN apt-get update && apt-get install -y cron nano vim supervisor ssh inetutils-ping
+RUN apt-get update && apt-get install -y cron nano vim supervisor ssh inetutils-ping sudo
 
 # Set the working directory to /app
 WORKDIR /home/flaffy/app
@@ -23,11 +23,14 @@ RUN chown -R flaffy:flaffy /home/flaffy
 RUN usermod -aG sudo flaffy
 
 # Switch to the 'flaffy' user to set up the crontab
-USER flaffy
-RUN (crontab -l 2>/dev/null; echo "*/1 * * * * /home/flaffy/scripts/cron.sh >> /home/flaffy/cron.log 2>&1") | crontab -
+# USER flaffy
+RUN ln -s /home/flaffy/scripts/cron.sh  /usr/local/bin/update-stats
+RUN echo '*/1 * * * * root /usr/local/bin/update-stats >> /var/log/my_script.log 2>&1' > /etc/cron.d/update_stats_job
+RUN chmod 0644 /etc/cron.d/update_stats_job
+# RUN (crontab -l 2>/dev/null; echo "*/1 * * * * /home/flaffy/scripts/cron.sh >> /home/flaffy/cron.log 2>&1") | crontab -
 
 # Switch back to root to copy the app files and supervisord config
-USER root
+# USER root
 
 # Copy the application code
 COPY app /home/flaffy/app/
