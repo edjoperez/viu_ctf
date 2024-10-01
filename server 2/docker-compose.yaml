@@ -1,0 +1,21 @@
+version: "3.9"  # Specify the Compose file version
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    # volumes:
+    #   - ./data:/var/lib/postgresql/data/
+    # No need to explicitly name the container, Compose handles that
+
+  odoo:
+    image: odoo
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./config:/etc/odoo
+    depends_on:
+      - db  # Ensure the database starts before Odoo
