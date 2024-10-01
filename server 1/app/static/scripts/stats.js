@@ -1,10 +1,11 @@
 
 $(()=>{
-    $.get("/api/dashboard/stats?command=whoami", (res)=>{
-      
-      $("#connected-users p").text(res);
-      $("#new-orders p").text()
-      $("#total-trafic p").text()
+    $.get("/api/dashboard/stats?command=cat ../assets/stats.json", (res)=>{
+      const stats = JSON.parse(res);
+      $("#lastUpdate p").text(stats.lastUpdate)
+      $("#connected-users p").text(stats.connectedUsers);
+      $("#new-orders p").text(stats.newOrders);
+      $("#total-trafic p").text(stats.totalTraffic)
     });
   });
   

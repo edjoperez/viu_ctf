@@ -13,4 +13,3 @@ json_content="{
 
 # Write the JSON content to the stats.json file
 echo "$json_content" > /home/flaffy/assets/stats.json
-echo "oli" > /home/flaffy/demo
