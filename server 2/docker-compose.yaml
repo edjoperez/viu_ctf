@@ -1,5 +1,3 @@
-version: "3.9"  # Specify the Compose file version
-
 services:
   db:
     image: postgres:15
@@ -7,9 +5,8 @@ services:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
       POSTGRES_DB: postgres
-    # volumes:
-    #   - ./data:/var/lib/postgresql/data/
-    # No need to explicitly name the container, Compose handles that
+    volumes:
+      - ./data:/var/lib/postgresql/data/
 
   odoo:
     image: odoo
