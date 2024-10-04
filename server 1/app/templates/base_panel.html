@@ -91,7 +91,16 @@
             top: -50px;
         }
 
+        .notifications{
+            position:fixed;
+            width: 100%;
+        }
 
+        .alert{
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
     </style>
     {% block extra_css %}
     {% endblock %}
@@ -103,12 +112,19 @@
             }).on( "mouseleave", ()=>{
                 $(".user-options").hide();
             } );
+
+            $('.flag-alert').show(0).delay(15000).hide(0);
     
         });
     </script>
 </head>
 
 <body>
+    <div class="notifications">
+        <div class="alert alert-success flag-alert" role="alert" style="display:none">
+            Take this flag: <strong>flag{pwnED_ch411eNG3}</strong>
+        </div>
+    </div>
     <main class="d-flex flex-nowrap">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
