@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Evil Corp</title>
+    <link rel="stylesheet" href="/server 1/app/static/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <img src="/server 1/app/static/evil-corp-logo.png" alt="Evil Corp Logo" width="50">
+            <nav>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="investor.html">Investors</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Shaping Tomorrow, Today</h1>
+            <p>We are the architects of the digital age, building a future where technology empowers every aspect of
+                human life.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+
+
+        <section>
+            <h2>Get in Touch with Us</h2>
+            <h3>Your Partner in Innovation</h3>
+            <p>Whether you're interested in our cutting-edge solutions, need technical assistance, or want to explore strategic collaborations, Evil Corp is here to help. We offer tailored support for every need and are committed to building strong, lasting partnerships.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us for Business Inquiries</h2>
+            <p>For business consultations, partnerships, or general inquiries, please fill out our contact form below, and one of our representatives will get back to you promptly.</p>
+            
+            <h4>Contact Form</h4>
+            <form action="#" method="post">
+                <label for="name"><strong>Name:</strong></label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email"><strong>Email:</strong></label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone"><strong>Phone Number:</strong></label><br>
+                <input type="tel" id="phone" name="phone"><br><br>
+
+                <label for="message"><strong>Message:</strong></label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section>
+            <h2>Technical Support</h2>
+            <p>Our dedicated technical support teams are available to assist with any issues or questions. Choose the appropriate contact based on your profile:</p>
+            <ul>
+                <li><strong>Enterprise Clients:</strong><br>
+                    Email: <a href="mailto:enterprise.support@evilcorp.com">enterprise.support@evilcorp.com</a><br>
+                    Phone: +1 (800) 123-4567
+                </li>
+                <li><strong>Government Partners:</strong><br>
+                    Email: <a href="mailto:gov.support@evilcorp.com">gov.support@evilcorp.com</a><br>
+                    Phone: +1 (800) 987-6543
+                </li>
+                <li><strong>General Technical Assistance:</strong><br>
+                    Email: <a href="mailto:support@evilcorp.com">support@evilcorp.com</a><br>
+                    Phone: +1 (800) 456-7890
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Global Headquarters and Regional Offices</h2>
+            <p>Feel free to visit us at any of our office locations worldwide. We are available for in-person consultations, meetings, and demonstrations of our latest innovations.</p>
+            <ul>
+                <li><strong>Headquarters:</strong><br>
+                    123 Innovation Blvd, New York, NY, 10001, USA<br>
+                    Phone: +1 (212) 555-0101
+                </li>
+                <li><strong>Regional Offices:</strong></li>
+                <ul>
+                    <li><strong>London, UK:</strong><br>
+                        45 Tech Square, London, EC1A 4HY<br>
+                        Phone: +44 (20) 1234-5678
+                    </li>
+                    <li><strong>Tokyo, Japan:</strong><br>
+                        2-1-1 Shinjuku, Tokyo 160-0022<br>
+                        Phone: +81 (3) 1234-5678
+                    </li>
+                </ul>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Career Opportunities</h2>
+            <p>Looking to be part of a team that’s transforming industries? Explore career opportunities at Evil Corp by visiting our <a href="#">Careers Page</a>. Join us in shaping the future of technology and innovation.</p>
+        </section>
+
+        <section>
+            <h2>Ready to Connect?</h2>
+            <p>We look forward to hearing from you. Whether you’re seeking support, exploring partnerships, or want to learn more about what we do, Evil Corp is here to guide you every step of the way. <strong>Let’s innovate together!</strong></p>
+        </section>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Evil Corp. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
+</body>
+
+</html>
