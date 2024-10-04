@@ -1,24 +1,37 @@
 {% extends 'base_panel.html' %}
 
-
 {% block content %}
-<div id="content">
-    <h1>Evil Corp Dashboard</h1>
+    <div class="container">
+        <h3>Contact Messages</h3>
+        <div class="message-list">
+            <div class="message-item">
+                <div class="d-flex justify-content-between">
+                    <strong>John Doe</strong>
+                    <small>10:30 AM</small>
+                </div>
+                <p>Subject: Meeting tomorrow</p>
+                <p>Hi, I am writing to inquire about the services offered by your company. I am particularly interested in learning more about your [mention a specific service or product if you have those defined, otherwise keep it generic] solutions.
 
-    <div class="metric">
-        <h3>Usuarios Activos</h3>
-        <p>1,337</p>
-    </div>
+                    Could you please provide me with more information about your offerings, pricing, and how your company can help me achieve my business goals?
+                    
+                    Thank you for your time and consideration.</p>
+            </div>
+            <div class="message-item">
+                <div class="d-flex justify-content-between">
+                    <strong>Jane Smith</strong>
+                    <small>Yesterday</small>
+                </div>
+                <p>Subject: Project update</p>
+                <p>My name is Jane Smith, and I represent MCorp, a leading provider of [mention a related industry or service]. I believe there could be a strong synergy between our companies and I would be interested in exploring potential partnership opportunities with Evil Corp.
 
-    <div class="metric">
-        <h3>Nuevos Pedidos</h3>
-        <p>42</p>
+                    Would you be open to a brief introductory call to discuss this further? Please let me know your availability.
+                    
+                    Best regards,</p>
+            </div>
+      </div>
+      <div class="text-end p-3">
+        <button type="button" class="btn btn-primary" disabled>View More</button>
+      </div>
     </div>
-
-    <div class="metric">
-        <h3>Tráfico Total</h3>
-        <p>666 TB</p>
-    </div>
-</div>
 
 {% endblock %}

@@ -69,8 +69,43 @@
           .scrollarea {
             overflow-y: auto;
           }
+
+        .message-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+        .message-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .content-wrapper{
+            width: 100%;
+        }
         
+        .user-panel{
+            position: relative;
+        }
+
+        .user-options{
+            position: absolute;
+            top: -50px;
+        }
+
+
     </style>
+    {% block extra_css %}
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(()=>{
+            $(".user-panel").on( "mouseenter", ()=>{
+                $(".user-options").show();
+            }).on( "mouseleave", ()=>{
+                $(".user-options").hide();
+            } );
+    
+        });
+    </script>
 </head>
 
 <body>
@@ -83,7 +118,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="#" class="nav-link text-white">
+                <a href="/panel" class="nav-link text-white">
                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/panel"></use></svg>
                   Dashboard
                 </a>
@@ -120,32 +155,21 @@
               </li>
             </ul>
             <hr>
-            <div class="dropdown">
+            <div class="dropdown user-panel">
               <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>webmaster</strong>
+                <strong>Webmaster</strong>
               </a>
-              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow user-options">
+                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
               </ul>
             </div>
           </div>
-          <div class="p-5">
-
+          <div class="p-5 content-wrapper">
             {% block content%}
     
             {% endblock %}
-    
-    
           </div>
     </body>
     </div>
-    
-
-
-
 </html>
