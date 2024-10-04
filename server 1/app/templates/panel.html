@@ -1,109 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'base_panel.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evil Corp Server Statistics</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: monospace;
-            background-color: #000;
-            color: #0f0;
-            margin: 0;
-        }
 
-        /* Sidebar */
-        #sidebar {
-            width: 250px;
-            background-color: #222;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
+{% block content %}
+<div id="content">
+    <h1>Evil Corp Dashboard</h1>
 
-        #sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        #sidebar li a {
-            display: block;
-            color: #0f0;
-            padding: 10px;
-            text-decoration: none;
-        }
-
-        #sidebar li a:hover {
-            background-color: #333;
-        }
-
-        /* Contenido principal */
-        #content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        /* Métricas */
-        .metric {
-            background-color: #333;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .metric h3 {
-            margin-top: 0;
-        }
-        .options-bar{
-            text-align: right;
-            padding-right: 1rem;
-        }
-        .options-bar a{
-            color: white;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="options-bar">
-        <a href="/logout">Log out</a>
-    </div>
-    <div id="sidebar">
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Contenido</a></li>
-            <li><a href="#">Medios</a></li>
-            <li><a href="#">Usuarios</a></li>
-            <li><a href="/stats">Stats</a></li>
-            <li><a href="#">Configuración</a></li>
-        </ul>
+    <div class="metric">
+        <h3>Usuarios Activos</h3>
+        <p>1,337</p>
     </div>
 
-    <div id="content">
-        <div>
-            <h5>FLAG OBTAINED:  flag{pwnED_ch411eNG3}</h5>
-        </div>
-        <h1>Evil Corp Dashboard</h1>
-
-        <div class="metric">
-            <h3>Usuarios Activos</h3>
-            <p>1,337</p>
-        </div>
-
-        <div class="metric">
-            <h3>Nuevos Pedidos</h3>
-            <p>42</p>
-        </div>
-
-        <div class="metric">
-            <h3>Tráfico Total</h3>
-            <p>666 TB</p>
-        </div>
+    <div class="metric">
+        <h3>Nuevos Pedidos</h3>
+        <p>42</p>
     </div>
 
-</body>
+    <div class="metric">
+        <h3>Tráfico Total</h3>
+        <p>666 TB</p>
+    </div>
+</div>
 
-</html>
+{% endblock %}
