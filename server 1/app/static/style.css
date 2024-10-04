@@ -5,8 +5,61 @@ body {
     color: #333; /* Dark gray text */
     background-color: #f4f4f4; /* Light gray background */
   }
-  
+
+  nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+nav a:hover {
+    text-decoration: underline;
+  }
+
   .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .history {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .mission {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .vision {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .values {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .leadership {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .global {
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
