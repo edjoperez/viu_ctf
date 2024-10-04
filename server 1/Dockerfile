@@ -45,5 +45,15 @@ RUN update-stats
 # Define environment variable
 ENV FLASK_APP=app.py
 USER root
+
+#Setups flags
+COPY flags/flag-3 /home/flaffy/app/
+RUN chmod 600 /home/flaffy/app/flag-3
+RUN chown flaffy /home/flaffy/app/flag-3
+
+COPY flags/flag-4 /home/flaffy
+RUN chmod 600 /home/flaffy/flag-4
+RUN chown root /home/flaffy/flag-4
+
 # Start supervisord to manage both cron and the Flask app
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

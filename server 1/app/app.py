@@ -64,11 +64,9 @@ def about():
     return render_template('about.html', posts=posts) 
 
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    db = get_db()
-    posts = db.execute('SELECT * FROM posts').fetchall()
-    return render_template('contact.html', posts=posts) 
+    return render_template('contact.html') 
 
 
 @app.route('/solutions')
@@ -196,4 +194,4 @@ def dashboard_stats():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0')
