@@ -1,109 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'base_panel.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evil Corp Server Statistics</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: monospace;
-            background-color: #000;
-            color: #0f0;
-            margin: 0;
-        }
+{% block content %}
+    <div class="container">
+        <h3>Contact Messages</h3>
+        <div class="message-list">
+            <div class="message-item">
+                <div class="d-flex justify-content-between">
+                    <strong>John Doe</strong>
+                    <small>10:30 AM</small>
+                </div>
+                <p>Subject: Meeting tomorrow</p>
+                <p>Hi, I am writing to inquire about the services offered by your company. I am particularly interested in learning more about your [mention a specific service or product if you have those defined, otherwise keep it generic] solutions.
 
-        /* Sidebar */
-        #sidebar {
-            width: 250px;
-            background-color: #222;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
+                    Could you please provide me with more information about your offerings, pricing, and how your company can help me achieve my business goals?
+                    
+                    Thank you for your time and consideration.</p>
+            </div>
+            <div class="message-item">
+                <div class="d-flex justify-content-between">
+                    <strong>Jane Smith</strong>
+                    <small>Yesterday</small>
+                </div>
+                <p>Subject: Project update</p>
+                <p>My name is Jane Smith, and I represent MCorp, a leading provider of [mention a related industry or service]. I believe there could be a strong synergy between our companies and I would be interested in exploring potential partnership opportunities with Evil Corp.
 
-        #sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        #sidebar li a {
-            display: block;
-            color: #0f0;
-            padding: 10px;
-            text-decoration: none;
-        }
-
-        #sidebar li a:hover {
-            background-color: #333;
-        }
-
-        /* Contenido principal */
-        #content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        /* Métricas */
-        .metric {
-            background-color: #333;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .metric h3 {
-            margin-top: 0;
-        }
-        .options-bar{
-            text-align: right;
-            padding-right: 1rem;
-        }
-        .options-bar a{
-            color: white;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="options-bar">
-        <a href="/logout">Log out</a>
-    </div>
-    <div id="sidebar">
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Contenido</a></li>
-            <li><a href="#">Medios</a></li>
-            <li><a href="#">Usuarios</a></li>
-            <li><a href="/stats">Stats</a></li>
-            <li><a href="#">Configuración</a></li>
-        </ul>
+                    Would you be open to a brief introductory call to discuss this further? Please let me know your availability.
+                    
+                    Best regards,</p>
+            </div>
+      </div>
+      <div class="text-end p-3">
+        <button type="button" class="btn btn-primary" disabled>View More</button>
+      </div>
     </div>
 
-    <div id="content">
-        <div>
-            <h5>FLAG OBTAINED:  flag{pwnED_ch411eNG3}</h5>
-        </div>
-        <h1>Evil Corp Dashboard</h1>
-
-        <div class="metric">
-            <h3>Usuarios Activos</h3>
-            <p>1,337</p>
-        </div>
-
-        <div class="metric">
-            <h3>Nuevos Pedidos</h3>
-            <p>42</p>
-        </div>
-
-        <div class="metric">
-            <h3>Tráfico Total</h3>
-            <p>666 TB</p>
-        </div>
-    </div>
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,25 +1,9 @@
 version: '3'
 
 services:
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
-      POSTGRES_DB: postgres
-
-  odoo:
+  web:
     build: .
     ports:
-      - "8069:8069"
-    depends_on:
-      - db  # Ensure the database starts before Odoo
-# services:
-#   front:
-#     container_name: frontend
-#     image: nginx:latest
-#     ports:
-#     - 8080:80
-#     volumes:
-#       - ./app:/usr/share/nginx/html:ro
-
+      - "5000:80"
+    volumes:
+      - ./app:/app

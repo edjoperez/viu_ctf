@@ -22,21 +22,14 @@ function makeAjaxCall(method, url, data, successCallback, errorCallback) {
 
 
 $(()=>{
-  // console.log('loaded file');
-  // $.ajax({
-  //   url: "/edit/2",
-  // }).done((content)=>{
-  //   console.log(content)
-  // });
-  $.get("/posts/get/1",{name: 'ed'}, (res)=>{
-    console.log(res);
+  //TODO: Implement posts listing
+    $.get("/posts/get/1", (res)=>{
+    // console.log(res);
+  });
+
+  //TODO: Implement post detail
+
+  $.get("/api/posts/detail?id=id", (res)=>{
+    // You got the first flag: flag{f1rSt_C7F_cH@113n93}
   });
 });
-
-  //TODO: Not going to be implemented in v1.0
-
-  //service: 
-  // /v1/posts/create
-  // GET
-  // CTF
-  // flag{f1rSt_C7F_cH@113n93}
