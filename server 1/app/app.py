@@ -30,7 +30,20 @@ with app.app_context():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             content TEXT NOT NULL
-        )
+        );
+               
+        INSERT INTO posts (title,content) VALUES
+	 ('This is a title','The magnificent content');
+        CREATE TABLE users (
+            id INTEGER,
+            name TEXT,
+            lastname TEXT,
+            username TEXT,
+            password TEXT
+        );
+        INSERT INTO users (id,name,lastname,username,password) VALUES
+	 (1,'web','master','webmaster','thisisapassword');
+               
     ''')
 
 # Homepage (list all posts)
@@ -39,6 +52,32 @@ def index():
     db = get_db()
     posts = db.execute('SELECT * FROM posts').fetchall()
     return render_template('index.html', posts=posts) 
+
+@app.route('/about')
+def about():
+    db = get_db()
+    posts = db.execute('SELECT * FROM posts').fetchall()
+    return render_template('about.html', posts=posts) 
+
+
+@app.route('/contact')
+def contact():
+    db = get_db()
+    posts = db.execute('SELECT * FROM posts').fetchall()
+    return render_template('contact.html', posts=posts) 
+
+
+@app.route('/solutions')
+def solutions():
+    db = get_db()
+    posts = db.execute('SELECT * FROM posts').fetchall()
+    return render_template('solutions.html', posts=posts) 
+
+@app.route('/investor')
+def investor():
+    db = get_db()
+    posts = db.execute('SELECT * FROM posts').fetchall()
+    return render_template('investor.html', posts=posts) 
 
 # Create new post form
 @app.route('/new', methods=['GET', 'POST'])

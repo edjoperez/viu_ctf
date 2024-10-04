@@ -101,3 +101,12 @@ nav a:hover {
     text-align: center;
     padding: 20px 0;
   }
+
+
+.form-container{
+  background-color: #0b5ed7;
+}
+
+.btn-submit{
+  background-color: white !important;
+}
