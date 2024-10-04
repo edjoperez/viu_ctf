@@ -3,6 +3,8 @@ from functools import wraps
 
 import subprocess
 import sqlite3
+import hashlib
+
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True 
@@ -25,24 +27,26 @@ def close_connection(exception):
 # Create table (if it doesn't exist)
 with app.app_context():
     db = get_db()
-    db.execute('''
+    db.executescript('''
         CREATE TABLE IF NOT EXISTS posts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             content TEXT NOT NULL
         );
                
-        INSERT INTO posts (title,content) VALUES
-	 ('This is a title','The magnificent content');
-        CREATE TABLE users (
+        CREATE TABLE IF NOT EXISTS users (
             id INTEGER,
             name TEXT,
             lastname TEXT,
             username TEXT,
             password TEXT
         );
-        INSERT INTO users (id,name,lastname,username,password) VALUES
-	 (1,'web','master','webmaster','thisisapassword');
+               
+        INSERT OR IGNORE INTO posts (title,content) VALUES
+	 ("This is a title","The magnificent content");
+
+        INSERT OR IGNORE INTO users (id,name,lastname,username,password) VALUES
+	 (1,"web","master","webmaster","15c4683193f210ca9c640af9241e8c18");
                
     ''')
 
@@ -134,13 +138,14 @@ def login():
     if request.method == 'POST':
         username = request.form['username'] or ''
         password = request.form['password'] or ''
+        hashed_password = hashlib.md5(password.encode('utf-8')).hexdigest()
 
 
         # Vulnerable query (intentionally insecure for the CTF)
         with get_db() as db:
             user = db.execute(
                 'SELECT * FROM users WHERE username = ? AND password = ?',
-                (username, password)
+                (username, hashed_password)
             ).fetchone()
 
         if user:
