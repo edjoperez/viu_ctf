@@ -16,3 +16,15 @@ services:
       - ./config:/etc/odoo
     depends_on:
       - db  # Ensure the database starts before Odoo
+
+  honk:
+    build: ./ssh
+    ports:
+      - "8080:8080"
+      - "2222:22"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf  # Nginx configuration
+      - ./assets:/usr/share/nginx/html/public/shared/  # Make the folder available for Nginx
+    depends_on:
+      - odoo
+    restart: always
