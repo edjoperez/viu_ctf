@@ -46,7 +46,7 @@ RUN update-stats
 ENV FLASK_APP=app.py
 USER root
 
-#Setups flags
+# Flag Setup
 COPY flags/flag-3 /home/flaffy/app/
 RUN chmod 600 /home/flaffy/app/flag-3
 RUN chown flaffy /home/flaffy/app/flag-3

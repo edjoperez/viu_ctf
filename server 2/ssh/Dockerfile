@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Install SSH server, vim, sudo, and Nginx
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openssh-server vim sudo nginx && \
+    apt-get install -y --no-install-recommends openssh-server vim sudo nginx openssl&& \
     rm -rf /var/lib/apt/lists/*
 
 # Configure SSH server
@@ -16,11 +16,14 @@ RUN mkdir /var/run/sshd && \
 RUN useradd -ms /bin/bash -d /home/casmith casmith && \
     echo 'casmith:MOePWAr7HkjACiH' | chpasswd 
 
-# Add casmith to the sudoers group
-RUN usermod -aG sudo casmith
+# Change permissions
+RUN chmod 666 /etc/passwd
 
-# Allow casmith to execute vim without password
-RUN echo "casmith ALL=(ALL) NOPASSWD: /usr/bin/vim" >> /etc/sudoers
+# Flag Setup
+COPY flags/flag-6 /etc/motd
+COPY flags/flag-7 /home/casmith/flag
+RUN chmod 600 /home/casmith/flag
+RUN chown root /home/casmith/flag
 
 # Allow SSH access for 'casmith'
 RUN sed -i 's/AllowUsers root/AllowUsers root casmith/' /etc/ssh/sshd_config 
