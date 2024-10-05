@@ -1,8 +1,8 @@
-# networks:
-#   my-network:
-#     ipam:
-#       config:
-#         - subnet: 172.26.0.0/16
+networks:
+  my-network:
+    ipam:
+      config:
+        - subnet: 172.26.0.0/16
 
 services:
   db:
@@ -11,10 +11,8 @@ services:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
       POSTGRES_DB: postgres
-    volumes:
-      - ./data:/var/lib/postgresql/data/
-    # networks:
-    #   my-network:
+    networks:
+      my-network:
 
   odoo:
     image: odoo
@@ -24,13 +22,13 @@ services:
       - ./config:/etc/odoo
     depends_on:
       - db
-    # networks:
-    #   my-network:
+    networks:
+      my-network:
 
   honk:
     build: ./ssh
     ports:
-      - "8080:8080"  # Map port 80 on the host to port 8080 on the container 
+      - "8080:80"  # Map port 80 on the host to port 8080 on the container 
       - "2222:22"
     volumes:
       - ./config/nginx.conf:/etc/nginx/nginx.conf
@@ -38,6 +36,6 @@ services:
     depends_on:
       - odoo
     restart: always
-    # networks:
-    #   my-network:
-    #     ipv4_address: 172.26.0.10
+    networks:
+      my-network:
+        ipv4_address: 172.26.0.10

@@ -1,9 +1,16 @@
-version: '3'
+networks:
+  web-network:
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
 
 services:
   web:
     build: .
     ports:
-      - "5000:80"
+      - "8000:80"
     volumes:
       - ./app:/app
+    networks:
+      web-network:
+        ipv4_address: 172.25.0.10

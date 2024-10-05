@@ -25,8 +25,6 @@ RUN echo "casmith ALL=(ALL) NOPASSWD: /usr/bin/vim" >> /etc/sudoers
 # Allow SSH access for 'casmith'
 RUN sed -i 's/AllowUsers root/AllowUsers root casmith/' /etc/ssh/sshd_config 
 
-# Nginx configuration
-COPY ../config/nginx.conf /etc/nginx/nginx.conf
 
 # Create the shared folder for public access and make it accessible
 RUN mkdir -p /usr/share/nginx/html/public/shared && \
