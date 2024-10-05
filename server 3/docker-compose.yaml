@@ -1,5 +1,47 @@
+# networks:
+#   my-network:
+#     ipam:
+#       config:
+#         - subnet: 172.26.0.0/16
+
 services:
-  ssh:
-    build: ./ssh
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes:
+      - ./odo_database.dump:/docker-entrypoint-initdb.d/dump.sql  # Mount the dump file
     ports:
-      - "2222:22"
+      - "5432:5432" 
+   
+    # networks:
+    #   my-network:
+
+  odoo:
+    image: odoo
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./config:/etc/odoo
+      - ./config/odoo:/var/lib/odoo
+    depends_on:
+      - db
+    # networks:
+    #   my-network:
+
+  # honk:
+  #   build: ./ssh
+  #   ports:
+  #     - "8080:8080"  # Map port 80 on the host to port 8080 on the container 
+  #     - "2222:22"
+  #   volumes:
+  #     - ./config/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./assets:/usr/share/nginx/html/public/shared/
+  #   depends_on:
+  #     - odoo
+  #   restart: always
+    # networks:
+    #   my-network:
+    #     ipv4_address: 172.26.0.10
